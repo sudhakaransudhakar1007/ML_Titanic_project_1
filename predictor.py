@@ -6,7 +6,7 @@ pipeline = joblib.load("Model/pipeline.pkl")
 def predict(data: dict):
     df = pd.DataFrame([data])
     prediction = pipeline.predict(df)[0]
-    probability =pipeline.predict_prob(df)[0].tolist()
+    probability =pipeline.predict_proba(df)[0].tolist()
     return {
         "predction": int(prediction),
         "probablity":{
